@@ -9,8 +9,7 @@
     />
 
     <Keyboard 
-      :letters="letters"
-    
+      :letters="letters"    
     />
   </div>
 </template>

@@ -1,6 +1,8 @@
 <template>
   <div class="keyboard">
-
+    <button class="key-btn" v-for="(letter, key) in alphabetLetters" :key="key">
+        {{ letter.toUpperCase() }}
+    </button>
   </div>
 </template>
 
@@ -13,7 +15,7 @@ export default {
   },
   data() {
     return {
-      // 
+      alphabetLetters: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
     }
   },
   methods: {
