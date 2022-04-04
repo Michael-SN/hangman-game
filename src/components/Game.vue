@@ -8,8 +8,10 @@
       :step="step"
     />
 
-    <Keyboard 
-      :letters="letters"    
+    <Keyboard v-if="step === 'game'"
+      :letters="letters"
+      :checkLetter="checkLetter"
+      :play="play"
     />
   </div>
 </template>
@@ -29,7 +31,8 @@ export default {
     tip: String,
     step: String,
     checkLetter: Function,
-    letters: Array
+    letters: Array,
+    play: Function
   },
   data() {
     return {

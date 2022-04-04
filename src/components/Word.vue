@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="tip">
-      <p>Tip: <strong>{{ tip }}</strong></p>
+      <p>{{ tipText }} <strong>{{ tip }}</strong></p>
     </div>
   </div>
 </template>
@@ -23,7 +23,7 @@ export default {
   },
   data() {
     return {
-      // 
+      tipText: 'tip: '
     }
   },
   methods: {
@@ -39,6 +39,7 @@ export default {
   flex-direction: column;
   text-align: center;
   align-items: center;
+  margin-bottom: 2rem;
 }
 
 .letters {

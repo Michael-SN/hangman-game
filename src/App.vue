@@ -25,6 +25,7 @@
         :checkLetter="checkLetter"
         :step="step"
         :letter="letters"
+        :play="play"
       />
     </section>
   </div>
@@ -63,6 +64,32 @@ export default {
     },
     checkLetter(letter) {
       return this.letters.find(item => item.toLowerCase() === letter.toLowerCase())
+    },
+    play(letter) {
+      this.letters.push(letter)
+      
+      // validar erros 
+      this.checkError(letter)
+    },
+    checkError(letter) {
+      // se acertor 
+      let _word = this.word.toLowerCase()
+      if(_word.indexOf(letter >= 0 )) {
+        return this.correctLetter()
+      }
+
+      this.erros++
+      console.log(this.erros)
+
+      if(this.erros === 6) this.step = 'hanged'
+    },
+    correctLetter() {
+      let wordSplited = this.word.split('')
+      let uniqueLetters = [...new Set(wordSplited)]
+
+      if(uniqueLetters,length === (this.letters.length - this.erros)) {
+        this.step = 'winner'
+      }
     }
   }
 }

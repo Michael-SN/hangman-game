@@ -1,7 +1,12 @@
 <template>
   <div class="keyboard">
-    <button class="key-btn" v-for="(letter, key) in alphabetLetters" :key="key">
-        {{ letter.toUpperCase() }}
+    <button 
+      class="key-btn" v-for="(letter, key) in alphabetLetters" 
+      :key="key"
+      :disable="checkLetter(letter)"
+      @click="play(letter)"
+    >
+      {{ letter }}
     </button>
   </div>
 </template>
@@ -11,7 +16,9 @@ export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: 'Keyboard',
   props: {
-    letter: Array
+    letter: Array,
+    checkLetter: Function,
+    play: Function
   },
   data() {
     return {
@@ -25,5 +32,14 @@ export default {
 </script>
 
 <style scoped>
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(13, 35px);
+  max-width: 100%;
+  gap: .5rem;
+}
 
+.key-btn {
+  text-transform: uppercase;
+}
 </style>
