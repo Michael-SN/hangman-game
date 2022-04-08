@@ -5,39 +5,37 @@
         {{ title }}
       </h3>
     </div>
-    <input type="text" class="form-input" v-model="inputValue">
-    <button
-      :disable="(inputValue.length === 0)"
-      @click="onSubmit"      
-      >{{ button }}</button>
+    <input type="text" class="form-input" v-model="inputValue" />
+    <button :disable="inputValue.length === 0" @click="onSubmit">
+      {{ button }}
+    </button>
   </div>
 </template>
 
 <script>
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
-  name: 'Formulario',
+  name: "Formulario",
   props: {
     title: String,
     button: String,
-    action: Function
+    action: Function,
   },
   data() {
     return {
-      inputValue: ''
-    }
+      inputValue: "",
+    };
   },
   methods: {
     onSubmit() {
-      this.action(this.inputValue)
-      this.inputValue = ''
-    }
-  }
-}
+      this.action(this.inputValue);
+      this.inputValue = "";
+    },
+  },
+};
 </script>
 
 <style scoped>
-
 .form {
   display: flex;
   flex-direction: column;
@@ -53,10 +51,10 @@ export default {
   margin: 10px 0;
   text-align: center;
   color: var(--color-text-dark);
-  outline: none;  
-  transition: all .2s;  
+  outline: none;
+  transition: all 0.2s;
   color: #585858;
-  font-weight: bold;  
+  font-weight: bold;
   font-family: inherit;
 }
 </style>

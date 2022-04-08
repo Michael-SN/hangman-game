@@ -1,14 +1,10 @@
 <template>
   <div class="game">
     <Forca :erros="erros" />
-    <Word 
-      :word="word" 
-      :tip="tip"
-      :checkLetter="checkLetter"
-      :step="step"
-    />
+    <Word :word="word" :tip="tip" :checkLetter="checkLetter" :step="step" />
 
-    <Keyboard v-if="step === 'game'"
+    <Keyboard
+      v-if="step === 'game'"
       :letters="letters"
       :checkLetter="checkLetter"
       :play="play"
@@ -17,14 +13,13 @@
 </template>
 
 <script>
-
-import Forca from './Forca'
-import Word from './Word'
-import Keyboard from './Keyboard'
+import Forca from "./Forca";
+import Word from "./Word";
+import Keyboard from "./Keyboard";
 
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
-  name: 'Game',
+  name: "Game",
   props: {
     erros: Number,
     word: String,
@@ -32,26 +27,25 @@ export default {
     step: String,
     checkLetter: Function,
     letters: Array,
-    play: Function
+    play: Function,
   },
   data() {
     return {
-      // 
-    }
+      //
+    };
   },
   methods: {
-    // 
+    //
   },
   components: {
     Forca,
     Word,
-    Keyboard
-  }
-}
+    Keyboard,
+  },
+};
 </script>
 
 <style scoped>
-
 .game {
   width: 100%;
   display: flex;
