@@ -2,8 +2,8 @@
   <div class="switch-language">
     <input type="checkbox" id="switch" v-on:change="handleSetLanguage" />
     <label for="switch">
-      <span>PT</span>
-      <span>EN</span>
+      <span>{{ lang[0] }}</span>
+      <span>{{ lang[1] }}</span>
     </label>
   </div>
 </template>
@@ -16,7 +16,9 @@ export default {
     //
   },
   data() {
-    return {};
+    return {
+      lang: ["PT", "EN"],
+    };
   },
   methods: {
     // handleSetLanguage(e) {
