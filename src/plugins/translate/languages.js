@@ -4,7 +4,8 @@ export const languages = {
       title: "Hangman Game",
       "set-word": 'Define the Word',
       "set-tip": 'Define the Tip',
-      "next-button": "Next step"
+      "next-button": "Next step",
+      "switch-lang": "Change language"
     },
     game: {
       "final-message": [
@@ -20,7 +21,8 @@ export const languages = {
       title: "Jogo da Forca",
       "set-word": "Defina a palavra",
       "set-tip": "Defina uma dica de palavra",
-      "next-button": "Proxima etapa"
+      "next-button": "Proxima etapa",
+      "switch-lang": "Trocar idioma"
     },
     game: {
       "final-message": [

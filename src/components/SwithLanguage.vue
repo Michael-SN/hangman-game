@@ -1,10 +1,15 @@
 <template>
-  <div class="switch-language">
-    <input type="checkbox" id="switch" v-on:change="handleSetLanguage" />
-    <label for="switch">
-      <span>{{ lang[0] }}</span>
-      <span>{{ lang[1] }}</span>
-    </label>
+  <div class="switch-content">
+    <div class="switch-text">
+      <span>{{ $t("main.switch-lang") }}</span>
+    </div>
+    <div class="switch-language">
+      <input type="checkbox" id="switch" v-on:change="handleSetLanguage" />
+      <label for="switch">
+        <span>{{ lang[0] }}</span>
+        <span>{{ lang[1] }}</span>
+      </label>
+    </div>
   </div>
 </template>
 
@@ -35,6 +40,13 @@ export default {
 </script>
 
 <style scoped>
+.switch-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+}
+
 .switch-language {
   width: 65px;
   display: flex;
@@ -67,6 +79,7 @@ export default {
   position: absolute;
   left: 4px;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 label span {
