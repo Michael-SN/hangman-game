@@ -1,23 +1,23 @@
 <template>
   <div id="app">
-    <SwitchLanguage />
     <div class="container">
+      <SwitchLanguage />
       <div class="header-game">
-        <h1>{{ $t("title") }}</h1>
+        <h1>{{ $t("main.title") }}</h1>
       </div>
 
       <section id="start" v-if="screen === 'start'">
         <Formulario
           v-if="step === 'word'"
-          :title="$t('set-word')"
-          button="Next"
+          :title="$t('main.set-word')"
+          :button="$t('main.next-button')"
           :action="defineWord"
         />
 
         <Formulario
           v-if="step === 'tip'"
-          :title="$t('set-tip')"
-          button="Next"
+          :title="$t('main.set-tip')"
+          :button="$t('main.next-button')"
           :action="defineTip"
         />
       </section>
@@ -30,6 +30,7 @@
           :step="step"
           :letters="letters"
           :play="play"
+          :playAgain="playAgain"
         />
       </section>
     </div>
@@ -86,19 +87,27 @@ export default {
       let _word = this.word.toLowerCase();
       let _letter = letter.toLowerCase();
 
-      console.log("Letras inserida no input" + letter);
-      console.log("Palavra", this.word);
+      if (_word.indexOf(_letter) >= 0) return this.correctLetters();
 
-      if (_word.indexOf(_letter) >= 0) {
-        return "acertou a letra";
-      }
       this.erros++;
-      console.log(this.erros);
+
+      if (this.erros === 6) this.step = "hanged";
     },
     correctLetters() {
       let _wordSplited = this.word.split("");
       let wordWithSingleLetters = [...new Set(_wordSplited)];
-      wordWithSingleLetters;
+
+      if (wordWithSingleLetters.length === this.letters.length - this.erros) {
+        this.step = "winner";
+      }
+    },
+    playAgain() {
+      this.word = "";
+      this.tip = "";
+      this.erros = 0;
+      this.letters = [];
+      this.screen = "start";
+      this.step = "word";
     },
   },
 };

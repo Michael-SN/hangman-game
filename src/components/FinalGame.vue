@@ -1,10 +1,12 @@
 <template>
   <div class="final-game">
     <div :class="`feedback-text ${step}`">
-      <p>Parabens :)</p>
+      <p>{{ text }}</p>
     </div>
     <div class="feedback-button">
-      <button type="button" @click="playAgain">Jogar Novamente</button>
+      <button type="button" @click="playAgain">
+        {{ $t("game.restart-button") }}
+      </button>
     </div>
   </div>
 </template>
@@ -26,6 +28,13 @@ export default {
 </script>
 
 <style scoped>
+.final-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .feedback-text p {
   margin: 20px 0;
   font-size: 24px;

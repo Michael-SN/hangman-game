@@ -1,12 +1,34 @@
 export const languages = {
-  pt: {
-    title: "Jogo da Forca",
-    "set-word": "Defina a palavra",
-    "set-tip": "Defina uma dica de palavra",
-  },
   en: {
-    title: "Hangman Game",
-    "set-word": "Define the word",
-    "set-tip": "Define the tip",
-  }
+    main: {
+      title: "Hangman Game",
+      "set-word": 'Define the Word',
+      "set-tip": 'Define the Tip',
+      "next-button": "Next step"
+    },
+    game: {
+      "final-message": [
+        "Congratulations, you won :)",
+        "Sorry, you lose :("
+      ],
+      "restart-button": 'Play again',
+      "tip-text": "Tip"
+    }
+  },
+  pt: {
+    main: {
+      title: "Jogo da Forca",
+      "set-word": "Defina a palavra",
+      "set-tip": "Defina uma dica de palavra",
+      "next-button": "Proxima etapa"
+    },
+    game: {
+      "final-message": [
+        "Parabéns, você ganhou :)",
+        "Desculpe, você perdeu :("
+      ],
+      "restart-button": 'Jogar novamente',
+      "tip-text": "Dica"
+    }
+  },
 }

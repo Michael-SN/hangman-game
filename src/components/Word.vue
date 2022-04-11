@@ -2,11 +2,13 @@
   <div class="word">
     <div class="letters">
       <div class="letter" v-for="(letter, key) in word" :key="key">
-        {{ (checkLetter(letter) || step === 'hanged') ? letter : '' }}
+        {{ checkLetter(letter) || step === "hanged" ? letter : "" }}
       </div>
     </div>
     <div class="tip">
-      <p>{{ tipText }} <strong>{{ tip }}</strong></p>
+      <p>
+        {{ $t("game.tip-text") }} : <strong>{{ tip }}</strong>
+      </p>
     </div>
   </div>
 </template>
@@ -14,22 +16,20 @@
 <script>
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
-  name: 'Word',
+  name: "Word",
   props: {
     word: String,
     tip: String,
     checkLetter: Function,
-    step: String
+    step: String,
   },
   data() {
-    return {
-      tipText: 'tip: '
-    }
+    return {};
   },
   methods: {
-    // 
-  },  
-}
+    //
+  },
+};
 </script>
 
 <style scoped>
@@ -43,8 +43,8 @@ export default {
 }
 
 .letters {
-  display: flex;  
-  margin-bottom: .8rem;
+  display: flex;
+  margin-bottom: 0.8rem;
 }
 
 .letters .letter {
@@ -53,7 +53,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 .5rem;
-  border-bottom: 1px solid var(--color-text-light);  
+  margin: 0 0.5rem;
+  border-bottom: 1px solid var(--color-text-light);
 }
 </style>

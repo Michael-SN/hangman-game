@@ -1,6 +1,7 @@
 <template>
   <div class="game">
     <Forca :erros="erros" />
+
     <Word :word="word" :tip="tip" :checkLetter="checkLetter" :step="step" />
 
     <Keyboard
@@ -9,6 +10,17 @@
       :checkLetter="checkLetter"
       :play="play"
     />
+
+    <FinalGame
+      v-if="step != 'game'"
+      :step="step"
+      :text="
+        step === 'winner'
+          ? $t('game.final-message[0]')
+          : $t('game.final-message[1]')
+      "
+      :playAgain="playAgain"
+    />
   </div>
 </template>
 
@@ -16,6 +28,7 @@
 import Forca from "./Forca";
 import Word from "./Word";
 import Keyboard from "./Keyboard";
+import FinalGame from "./FinalGame.vue";
 
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
@@ -28,6 +41,7 @@ export default {
     checkLetter: Function,
     letters: Array,
     play: Function,
+    playAgain: Function,
   },
   data() {
     return {
@@ -41,6 +55,7 @@ export default {
     Forca,
     Word,
     Keyboard,
+    FinalGame,
   },
 };
 </script>
